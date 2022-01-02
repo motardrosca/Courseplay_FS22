@@ -19,7 +19,7 @@ function CourseplaySpec.registerEventListeners(vehicleType)
 --	SpecializationUtil.registerEventListener(vehicleType, "onRegisterActionEvents", CourseplaySpec)
 	SpecializationUtil.registerEventListener(vehicleType, "onLoad", CourseplaySpec)
     SpecializationUtil.registerEventListener(vehicleType, "onPostLoad", CourseplaySpec)
---    SpecializationUtil.registerEventListener(vehicleType, "getStartAIJobText", CourseplaySpec)
+    SpecializationUtil.registerEventListener(vehicleType, "onDraw", CourseplaySpec)
     SpecializationUtil.registerEventListener(vehicleType, "onEnterVehicle", CourseplaySpec)
     SpecializationUtil.registerEventListener(vehicleType, "onLeaveVehicle", CourseplaySpec)
 
@@ -50,6 +50,10 @@ end
 
 function CourseplaySpec:saveToXMLFile(xmlFile, baseKey, usedModNames)
    
+end
+
+function CourseplaySpec:onDraw()
+    g_vineScanner:draw(self.rootNode)
 end
 
 function CourseplaySpec:onEnterVehicle(isControlling)

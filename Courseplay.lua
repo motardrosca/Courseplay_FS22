@@ -132,6 +132,7 @@ function Courseplay:load()
 	g_courseManger = self.courseStorage
 	g_courseDisplay = CourseDisplay()
 	g_vehicleConfigurations:loadFromXml()
+	g_vineScanner:setup()
 end
 
 function Courseplay:registerConsoleCommands()

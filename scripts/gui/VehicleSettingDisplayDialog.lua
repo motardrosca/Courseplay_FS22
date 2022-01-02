@@ -5,7 +5,8 @@ VehicleSettingDisplayDialog = {
 		BLANK_ELEMENT = "blankElement",
 		BUTTON_BACK = "backButton",
 		BUTTON_START = "startButton",
-		BUTTON_LAYOUT = "bottomButtons"
+		BUTTON_LAYOUT = "bottomButtons",
+		BUTTON_GENERATE_VINE = "vineGenerateButton"
 	},
 }
 local VehicleSettingDisplayDialog_mt = Class(VehicleSettingDisplayDialog, ScreenElement)
@@ -48,6 +49,11 @@ function VehicleSettingDisplayDialog:onGuiSetupFinished()
 	FocusManager:removeElement(self.backButton)
 	self.layout:addElement(self.backButton)
 
+	self.vineGenerateButton:unlinkElement()
+	FocusManager:removeElement(self.vineGenerateButton)
+	self.layout:addElement(self.vineGenerateButton)
+
+
 	self.layout:invalidateLayout()
 	CpGuiUtil.setTarget(self.layout,self)
 	VehicleSettingDisplayDialog:superClass().onGuiSetupFinished(self)
@@ -84,6 +90,10 @@ end
 
 function VehicleSettingDisplayDialog:onClickBack()
 	g_gui:showGui("")
+end
+
+function VehicleSettingDisplayDialog:onClickMenuExtra1()
+	
 end
 
 function VehicleSettingDisplayDialog:onClickOk()
